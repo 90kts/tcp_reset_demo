@@ -23,5 +23,11 @@ run_with_reset:
 run_with_packet_loss:
 	docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock gaiaadm/pumba \
 		pumba netem --interface eth0 --duration 15m \
-		loss --percent 20 --correlation 25 \
+		loss --percent 50 --correlation 50 \
+		tcp_reset_demo
+
+run_with_delay:
+	docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock gaiaadm/pumba \
+		pumba netem --interface eth0 --duration 15m \
+		delay --time 3000 \
 		tcp_reset_demo
