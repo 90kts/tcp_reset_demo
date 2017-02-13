@@ -12,7 +12,7 @@ push:
 	docker push 90kts/tcp_reset_demo
 
 test:
-	/usr/local/share/jmeter-3.0/bin/jmeter -n -t tcp_reset_demo.jmx
+	/usr/local/share/jmeter-3.1/bin/jmeter -n -t tcp_reset_demo.jmx -l results.csv
 
 run:
 	docker run --rm --privileged --name "tcp_reset_demo" -p 2180:80 -v $$(pwd)/example-content:/var/www 90kts/tcp_reset_demo:latest
